@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:background="#FF444444"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Camera -->
+    <com.otaliastudios.cameraview.CameraView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/camera"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/control_ll"
+        android:layout_gravity="center"
+        android:keepScreenOn="true"
+        app:cameraExperimental="true"
+        app:cameraEngine="camera2"
+        app:cameraPreview="glSurface"
+        app:cameraPlaySounds="true"
+        app:cameraGrid="off"
+        app:cameraFlash="auto"
+        app:cameraAudio="on"
+        app:cameraFacing="back"
+        app:cameraGestureTap="autoFocus"
+        app:cameraGestureLongTap="none"
+        app:cameraGesturePinch="zoom"
+        app:cameraGestureScrollHorizontal="filterControl1"
+        app:cameraGestureScrollVertical="exposureCorrection"
+        app:cameraMode="video"
+        app:cameraAutoFocusMarker="@string/cameraview_default_autofocus_marker">
+
+        <!-- Watermark -->
+<!--        <ImageView-->
+<!--            android:id="@+id/watermark"-->
+<!--            android:layout_width="72dp"-->
+<!--            android:layout_height="72dp"-->
+<!--            android:layout_gravity="end"-->
+<!--            android:src="@drawable/ic_launcher_background"-->
+<!--            app:layout_drawOnPictureSnapshot="true"-->
+<!--            app:layout_drawOnPreview="true"-->
+<!--            app:layout_drawOnVideoSnapshot="true"-->
+<!--            />-->
+
+    </com.otaliastudios.cameraview.CameraView>
+
+
+    <ImageView
+        android:id="@+id/toggleCamera"
+        android:layout_marginTop="8dp"
+        android:tint="@android:color/white"
+        android:src="@drawable/ic_switch"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp"
+        android:layout_width="56dp"
+        android:layout_height="56dp"/>
+
+    <!-- Controls -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/control_ll"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="#FF444444"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/captureVideo"
+            android:src="@drawable/ic_videocam"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="56dp"
+            android:layout_height="56dp"/>
+
+        <TextView
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_red_light"
+            tools:text="00:30"
+            android:id="@+id/timer_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/captureVideo"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/control_ll"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        android:padding="16dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:background="@color/colorPrimary"-->
+<!--        android:weightSum="4">-->
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/edit"-->
+<!--            android:layout_width="56dp"-->
+<!--            android:layout_height="56dp"-->
+<!--            android:background="?attr/selectableItemBackgroundBorderless"-->
+<!--             />-->
+
+<!--        <Space-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:layout_weight="1" />-->
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/capturePicture"-->
+<!--            android:layout_width="56dp"-->
+<!--            android:layout_height="56dp"-->
+<!--            android:background="?attr/selectableItemBackgroundBorderless" />-->
+
+<!--        <Space-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:layout_weight="1" />-->
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/capturePictureSnapshot"-->
+<!--            android:layout_width="56dp"-->
+<!--            android:layout_height="56dp"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="?attr/selectableItemBackgroundBorderless"-->
+<!--            android:gravity="center" >-->
+<!--            <ImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                />-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textSize="10sp"-->
+<!--                android:text="SNAP"/>-->
+<!--        </LinearLayout>-->
+
+<!--        <Space-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:layout_weight="1" />-->
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/captureVideo"-->
+<!--            android:layout_width="56dp"-->
+<!--            android:layout_height="56dp"-->
+<!--            android:src="@drawable/ic_videocam"-->
+<!--            android:tint="@android:color/white"-->
+<!--            android:background="?attr/selectableItemBackgroundBorderless"-->
+<!--            />-->
+
+<!--        <Space-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:layout_weight="1" />-->
+
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/captureVideoSnapshot"-->
+<!--            android:layout_width="56dp"-->
+<!--            android:layout_height="56dp"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="?attr/selectableItemBackgroundBorderless"-->
+<!--            android:gravity="center" >-->
+<!--            <ImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content" />-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textSize="10sp"-->
+<!--                android:text="SNAP"/>-->
+<!--        </LinearLayout>-->
+<!--    </LinearLayout>-->
+
+<!--    &lt;!&ndash; Edit &ndash;&gt;-->
+<!--    <androidx.core.widget.NestedScrollView-->
+<!--        android:id="@+id/controls"-->
+<!--        android:background="@android:color/white"-->
+<!--        app:layout_behavior="@string/bottom_sheet_behavior"-->
+<!--        app:behavior_hideable="true"-->
+<!--        app:behavior_peekHeight="300dp"-->
+<!--        app:behavior_skipCollapsed="false"-->
+<!--        android:elevation="4dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+<!--        <LinearLayout-->
+<!--            android:orientation="vertical"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"/>-->
+<!--    </androidx.core.widget.NestedScrollView>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
