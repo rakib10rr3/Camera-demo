@@ -20,6 +20,14 @@ class MainActivity : AppCompatActivity() {
         record_button?.setOnClickListener {
             requestPermission()
         }
+
+        view_video_button?.setOnClickListener {
+            startActivity(Intent(this,PlayerActivity::class.java))
+        }
+
+        snap_button?.setOnClickListener {
+            startActivity(Intent(this,SwipeActivity::class.java))
+        }
     }
 
     private fun requestPermission() {
