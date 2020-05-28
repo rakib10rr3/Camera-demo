@@ -21,7 +21,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".SwipeActivity"></activity>
         <activity
-            android:theme="@style/MyDialog"
             android:name=".PlayerActivity" />
         <activity android:name=".CameraActivity" />
         <activity android:name=".MainActivity">

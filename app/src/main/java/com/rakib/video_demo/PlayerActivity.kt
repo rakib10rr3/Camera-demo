@@ -1,9 +1,13 @@
 package com.rakib.video_demo
 
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.MediaController
+import androidx.core.net.toUri
 import kotlinx.android.synthetic.main.activity_player.*
+import java.io.File
 
 class PlayerActivity : AppCompatActivity() {
 
@@ -14,12 +18,19 @@ class PlayerActivity : AppCompatActivity() {
 
         setFinishOnTouchOutside(false)
 
-        video_view?.setVideoPath("https://vdo.bdjobs.com/Videos/Corporate//904205/183073282/2523253_469.webm")
-        video_view?.start()
+        val file : File = intent.extras?.get("url") as File
+
         var mediaController = MediaController(this)
         video_view.setMediaController(mediaController)
-        mediaController.setAnchorView(video_view)
-        mediaController.show()
+        try{
+            mediaController.setAnchorView(video_view)
+            mediaController.show()
+        } catch (e:Exception){
+            e.printStackTrace()
+        }
+
+        video_view?.setVideoURI(Uri.fromFile(file))
+        video_view?.start()
 
     }
 }
